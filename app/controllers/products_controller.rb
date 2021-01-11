@@ -3,14 +3,14 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
+    @products = ProductSerializer.new(@products).serializable_hash[:data].map{|hash| hash[:attributes]}
 
     render json: @products
   end
 
   # GET /products/1
   def show
-    render json: @product
+    render json: current_user.products
   end
 
   # POST /products
