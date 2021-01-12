@@ -10,17 +10,18 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
+
     render json: @review
   end
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     if @review.save
       render json: @review, status: :created, location: @review
     else
-      render json: @review.errors, status: :unprocessable_entity
+      render json: @review.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
   end
 
