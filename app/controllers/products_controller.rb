@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
+    #@product = Product.all
     @products = ProductSerializer.new(Product.all).serializable_hash[:data].map{|hash| hash[:attributes]}
     #each product needs image url to display it
-
     render json: @products
   end
 
