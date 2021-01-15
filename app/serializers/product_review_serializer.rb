@@ -1,4 +1,9 @@
 class ProductReviewSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :created_at, :updated_at
+  has_many :reviews
+  attributes :id, :comment
+  #attributes of product I want, need to use options include todolist show action ex.
+
+
+
 end
