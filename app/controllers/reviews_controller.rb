@@ -3,21 +3,21 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.all
-
+    #@reviews = Review.all
+    @reviews = ReviewSerializer.new(Review.all).serializable_hash[:data].map{|hash| hash[:attributes]}
     render json: @reviews
   end
 
   # GET /reviews/1
   def show
-
+    @review = set_review  
     render json: @review
   end
 
   # POST /reviews
   def create
-    @review = current_user.reviews.build(review_params)
-
+    #@review = current_user.reviews.build(review_params)
+    @review = Review.new(review_params)
     if @review.save
       render json: @review, status: :created, location: @review
     else
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = Review.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
