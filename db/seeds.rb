@@ -38,7 +38,7 @@ review2 = p2.reviews.find_or_create_by(comment: "This Brightening Toner is da bo
 
 review3 = p3.reviews.find_or_create_by(comment: "A rejuvenating healing serum, love it", user_id: user.id)
 
-review4 = p4.reviews.find_or_create_by(comment: "Lavish Peptide Creme", user_id: user.id)
+review4 = p4.reviews.find_or_create_by(comment: "The creme is so amazing!", user_id: user.id)
 review5 = p5.reviews.find_or_create_by(comment: "Creamy Luffa Exfoliant", user_id: user.id)
 review6 = p6.reviews.find_or_create_by(comment: "Green Tea Cleanser", user_id: user.id)
 review7 = p7.reviews.find_or_create_by(comment: "Kaolin Cleanse", user_id: user.id)
