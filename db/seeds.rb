@@ -50,4 +50,4 @@ review9 = p9.reviews.find_or_create_by(comment: "Azi-Clear Serum helps to save t
 
 
 
-#   Character.create(name: 'Luke', movie: movies.first)
+
